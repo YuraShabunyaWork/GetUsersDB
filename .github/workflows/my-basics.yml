@@ -11,7 +11,7 @@ on:
 
 jobs:
   my_testing:
-    runs-on: ubuntu-latess
+    runs-on: ubuntu-latest
     steps:
     - name: Print Hello Message
       run : echo "Hello World from Testing"
