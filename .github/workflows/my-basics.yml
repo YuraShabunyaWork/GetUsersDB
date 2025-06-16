@@ -3,6 +3,9 @@
 # Copyleft (c)
 #--------------------------------
 name: MyGitHubActions-Basics
+env:
+  APPLICATION_NAME   : "MyFlask"
+  DEPLOY_PACKAGE_NAME: "flask-deploy-ver-${{ github.sha }}"
 
 on:
   push:
@@ -16,9 +19,17 @@ jobs:
     - name: Print Hello Message
       run : echo "Hello World from Testing"
 
+    - name: Execure few commands
+      run : |
+        echo "Hello message 1"
+        echo "Apllication name: ${{ env.APPLICATION_NAME }}"
+
   my_deploy:
     runs-on: ubuntu-latest
     needs: [my_testing]
     steps:
     - name: Print Hello Message
       run : echo "Hello World from Deploy"
+
+    - name: Primting Deployment package
+      run : echo "Deploy package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
