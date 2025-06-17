@@ -13,7 +13,7 @@ jobs:
       - name: Copy File From Git
         uses: actions/checkout@v4
 
-      - name: Run Docker Compouser
+      - name: Run Docker Compose
         run : |
           make build
           make up
