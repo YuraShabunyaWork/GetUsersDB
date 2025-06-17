@@ -1,16 +1,8 @@
 services:
   web-1:
-    image: my-web-app
-    build: .
+    image: yuradotnet/flask-demo
     ports:
       - "5000:5000"
-    depends_on:
-      - db
-
-  web-2:
-    image: my-web-app
-    ports:
-      - "5010:5000"
     depends_on:
       - db
 
@@ -19,12 +11,6 @@ services:
     env_file: db.env
     volumes:
       - pgdata:/var/lib/postgresql/data
-
-  pgadmin:
-    image: dpage/pgadmin4
-    env_file: pgadmin.env
-    ports:
-      - "5050:80"
 
 volumes:
   pgdata:
