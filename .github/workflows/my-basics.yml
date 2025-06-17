@@ -12,10 +12,10 @@ jobs:
     steps:
       - name: Copy File From Git
         uses: actions/checkout@v4
-      
+
       - name: Run Tests
         run : |
-          pip install pytest flask
+          pip install pytest flask psycopg2
           pytest test_app.py
 
       - name: Log in to Docker Hub
