@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
@@ -29,7 +29,6 @@ jobs:
       - name: Set up kubectl
         run: |
           echo "${{ secrets.KUBECONFIG }}" | base64 -d > kubeconfig
-          ping -c 4 127.0.0.1
           export KUBECONFIG=$PWD/kubeconfig
           kubectl version --client
           kubectl get nodes
